@@ -1,4 +1,4 @@
-# HigherLower
+# Higher Lower Game
 
 - In this Project I learned Object Oriented Programming (OOP)!
 
