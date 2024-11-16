@@ -1,0 +1,20 @@
+-The game will display a logo and prompt you to choose between two entities: A or B.
+-You will see their name, description, and country of origin.
+-You need to guess which entity has more followers by typing A or B.
+-If your guess is correct, you will earn a point, and the game will present a new comparison.
+-The game continues until you guess incorrectly, at which point your final score will be displayed.
+
+Example:
+Compare A: Instagram, Social media platform, from United States.
+Compare B: Cristiano Ronaldo, Footballer, from Portugal.
+Choose A or B: A
+Correct! Current score: 1
+
+Compare A: Cristiano Ronaldo, Footballer, from Portugal.
+Compare B: Ariana Grande, Musician and actress, from United States.
+Choose A or B: B
+Correct! Current score: 2
+
+...
+
+You lost! Final score: 5
