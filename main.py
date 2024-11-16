@@ -3,40 +3,31 @@ import data
 import random
 
 
-def checker(guess, a, b):
-    if guess == "a":
-        if a > b:
-            return True
-        else:
-            return False
-    if guess == "b":
-        if a < b:
-            return True
-        else:
-            return False
+game_over = False
+a = random.randint(0, len(data) - 1)
+score = 0
 
-
-def game():
-    end = True
-    score = 0
-    while end:
-        print(art.logo)
-        if score != 0:
-            print("\n" * 50)
-            print(f"You are right! Current score : {score}")
-        else:
-            a = random.choice(data.data)
-        b = random.choice(data.data)
-        print(f"Compare A: {a['name']}, a {a['description']}, from {a['country']}.")
-        print(art.vs)
-        print(f"Against B: {b['name']}, a {b['description']}, from {b['country']}.")
-        guess = input("Who has more followers on Instagram? Type 'A' or 'B' : ").lower()
-        if checker(guess, int(a['follower_count']), int(b['follower_count'])):
-            score += 1
-            a = b
-        else:
-            print(f"Sorry, but your guess was wrong. Your final score is : {score}")
-            end = False
-
-
-game()
+while not game_over:
+    b = random.randint(0, len(data) - 1)
+    
+    # Ensure A and B are different
+    while a == b:
+        b = random.randint(0, len(data) - 1)
+    
+    print(f"Compare A: {data[a]['name']}, {data[a]['description']}, from {data[a]['country']}.")
+    print(f"Compare B: {data[b]['name']}, {data[b]['description']}, from {data[b]['country']}.")
+    
+    answer = input("Choose A or B: ").upper()
+    
+    if data[a]['follower_count'] > data[b]['follower_count'] and answer == 'A':
+        score += 1
+        print(f"Correct! Current score: {score}")
+    elif data[a]['follower_count'] < data[b]['follower_count'] and answer == 'B':
+        score += 1
+        print(f"Correct! Current score: {score}")
+    else:
+        print(f"You lost! Final score: {score}")
+        game_over = True
+    
+    # Set A to be the last selection for the next round
+    a = b
